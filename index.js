@@ -326,7 +326,7 @@ function expand(
     var isOptions = m.body.indexOf(',') >= 0;
     if (!isSequence && !isOptions) {
       // {a},b}
-      if (rewrites < maxRewrites && m.post.match(/,.*\}/)) {
+      if (rewrites < maxRewrites && m.post.match(/,(?!,).*\}/)) {
         rewrites++;
         str = m.pre + '{' + m.body + escClose + m.post;
         // The rewritten string is expanded as if it were a fresh top-level one,
